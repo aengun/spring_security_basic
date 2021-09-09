@@ -57,6 +57,7 @@ public class IndexController {
         String rawPassword = user.getPassword();
         String encPassword = bCryptPasswordEncoder.encode(rawPassword);
         user.setPassword(encPassword);
+        System.out.println(user);
         userRepository.save(user); // 회원가입 잘 됨. but 비밀번호 : 1234 => 시큐리티로 로그인할 수 없다. 이유는 패스워드 암호화가 안되어있어서
         return "redirect:/loginForm";
     }
